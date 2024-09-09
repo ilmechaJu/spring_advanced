@@ -34,6 +34,9 @@ public class AuthService {
         if (userRepository.existsByEmail(signupRequest.getEmail())) {
             throw new InvalidRequestException("이미 존재하는 이메일입니다.");
         }
+        if(signupRequest.getEmail().isEmpty()){
+            throw new InvalidRequestException("이메일이 비어 있습니다.");
+        }
 
         User newUser = new User(
                 signupRequest.getEmail(),
