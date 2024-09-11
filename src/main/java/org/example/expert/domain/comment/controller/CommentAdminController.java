@@ -1,5 +1,7 @@
 package org.example.expert.domain.comment.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.example.expert.domain.comment.service.CommentAdminService;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +15,7 @@ public class CommentAdminController {
     private final CommentAdminService commentAdminService;
 
     @DeleteMapping("/admin/comments/{commentId}")
-    public void deleteComment(@PathVariable long commentId) {
+    public void deleteComment(@PathVariable long commentId, HttpServletRequest request) {
         commentAdminService.deleteComment(commentId);
     }
 }

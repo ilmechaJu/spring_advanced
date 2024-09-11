@@ -24,6 +24,10 @@ repositories {
 }
 
 dependencies {
+    // HTTP Servlet
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    // AOP
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
     // Security
     implementation 'org.springframework.boot:spring-boot-starter-security'
     //  AuthenticationPrincipal
