@@ -1,6 +1,8 @@
 package org.example.expert.domain.comment.service;
 
+import org.example.expert.ServiceTestObjectFactory;
 import org.example.expert.domain.comment.dto.request.CommentSaveRequest;
+import org.example.expert.domain.comment.dto.response.CommentResponse;
 import org.example.expert.domain.comment.dto.response.CommentSaveResponse;
 import org.example.expert.domain.comment.entity.Comment;
 import org.example.expert.domain.comment.repository.CommentRepository;
@@ -16,6 +18,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -65,6 +69,32 @@ class CommentServiceTest {
 
         // when
         CommentSaveResponse result = commentService.saveComment(authUser, todoId, request);
+
+        // then
+        assertNotNull(result);
+    }
+
+    @Test
+    public void 다수의_comment를_조회한다() {
+        // given
+        long todoId = 1;
+        long userId = 1;
+
+        User user = ServiceTestObjectFactory.createUser(userId);
+        Todo todo = ServiceTestObjectFactory.createTodo(user);
+
+        // comments 객체들
+        List<Comment> comments = Arrays.asList(
+                new Comment("contents", user, todo),
+                new Comment("contents1", user, todo),
+                new Comment("contents2", user, todo)
+        );
+
+        // findByIdWithUser호출시 comments가 반환되어야 한다.
+        given(commentRepository.findByTodoIdWithUser(anyLong())).willReturn(comments);
+
+        // when
+        List<CommentResponse> result = commentService.getComments(todoId);
 
         // then
         assertNotNull(result);

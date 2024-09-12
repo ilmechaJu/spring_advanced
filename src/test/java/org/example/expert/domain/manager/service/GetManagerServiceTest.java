@@ -1,6 +1,6 @@
 package org.example.expert.domain.manager.service;
 
-import org.example.expert.ManagerServiceObjectFactory;
+import org.example.expert.ServiceTestObjectFactory;
 import org.example.expert.domain.common.exception.InvalidRequestException;
 import org.example.expert.domain.manager.dto.response.ManagerResponse;
 import org.example.expert.domain.manager.entity.Manager;
@@ -47,9 +47,9 @@ class ManagerServiceGetTest {
         long todoId = 1L;
         long userId = 1L;
 
-        User user = ManagerServiceObjectFactory.createUser(userId);
-        Todo todo = ManagerServiceObjectFactory.createTodo(user, todoId);
-        Manager mockManager = ManagerServiceObjectFactory.createManager(todo);
+        User user = ServiceTestObjectFactory.createUser(userId);
+        Todo todo = ServiceTestObjectFactory.createTodo(user, todoId);
+        Manager mockManager = ServiceTestObjectFactory.createManager(todo);
         List<Manager> managerList = List.of(mockManager);
 
         given(todoRepository.findById(todoId)).willReturn(Optional.of(todo));

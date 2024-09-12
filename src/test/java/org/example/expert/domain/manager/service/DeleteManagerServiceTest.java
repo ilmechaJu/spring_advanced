@@ -1,6 +1,6 @@
 package org.example.expert.domain.manager.service;
 
-import org.example.expert.ManagerServiceObjectFactory;
+import org.example.expert.ServiceTestObjectFactory;
 import org.example.expert.domain.common.dto.AuthUser;
 import org.example.expert.domain.common.exception.InvalidRequestException;
 import org.example.expert.domain.manager.dto.request.ManagerSaveRequest;
@@ -25,7 +25,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import java.util.List;
 import java.util.Optional;
 
-import static org.example.expert.ManagerServiceObjectFactory.*;
+import static org.example.expert.ServiceTestObjectFactory.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -99,12 +99,12 @@ class DeleteManagerServiceTest {
             long anotherTodoId = 2L;
 
 
-            User mockUser = ManagerServiceObjectFactory.createUser(userId); // 실제 요청을 한 유저 생성
+            User mockUser = ServiceTestObjectFactory.createUser(userId); // 실제 요청을 한 유저 생성
 
             // todo에 다른 유저가 설정된 경우
-            User anotherUser = ManagerServiceObjectFactory.createAnotherUser(anotherTodoId,"another@example.com"); // 다른 유저 생성
+            User anotherUser = ServiceTestObjectFactory.createAnotherUser(anotherTodoId,"another@example.com"); // 다른 유저 생성
             // 다른 유저가 todo에 설정된 경우를 가정
-            Todo todoWithDifferentUser = ManagerServiceObjectFactory.createTodo(anotherUser); // 생성자에서 todo의 소유자 설정
+            Todo todoWithDifferentUser = ServiceTestObjectFactory.createTodo(anotherUser); // 생성자에서 todo의 소유자 설정
 
 
             // 유저는 존재하지만 Todo의 유저와 다를 때
@@ -153,10 +153,10 @@ class DeleteManagerServiceTest {
             long managerId = 1L;
             long anotherTodoId = 2L;
 
-            User user = ManagerServiceObjectFactory.createUser(userId);
-            Todo todo = ManagerServiceObjectFactory.createTodo(user, todoId);
-            Todo anotherTodo = ManagerServiceObjectFactory.createTodo(user, anotherTodoId);
-            Manager manager = ManagerServiceObjectFactory.createManager(anotherTodo);
+            User user = ServiceTestObjectFactory.createUser(userId);
+            Todo todo = ServiceTestObjectFactory.createTodo(user, todoId);
+            Todo anotherTodo = ServiceTestObjectFactory.createTodo(user, anotherTodoId);
+            Manager manager = ServiceTestObjectFactory.createManager(anotherTodo);
 
             given(userRepository.findById(userId)).willReturn(Optional.of(user));
             given(todoRepository.findById(todoId)).willReturn(Optional.of(todo));
@@ -174,9 +174,9 @@ class DeleteManagerServiceTest {
             long userId = 1L;
             long managerId = 1L;
 
-            User user = ManagerServiceObjectFactory.createUser(userId);
-            Todo todo = ManagerServiceObjectFactory.createTodo(user, todoId);
-            Manager manager = ManagerServiceObjectFactory.createManager(todo);
+            User user = ServiceTestObjectFactory.createUser(userId);
+            Todo todo = ServiceTestObjectFactory.createTodo(user, todoId);
+            Manager manager = ServiceTestObjectFactory.createManager(todo);
 
             given(userRepository.findById(userId)).willReturn(Optional.of(user));
             given(todoRepository.findById(todoId)).willReturn(Optional.of(todo));

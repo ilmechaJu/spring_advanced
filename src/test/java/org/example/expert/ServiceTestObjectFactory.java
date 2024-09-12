@@ -11,7 +11,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 
 // 객체 외주로 만들기
-public class ManagerServiceObjectFactory {
+public class ServiceTestObjectFactory {
 
     public static AuthUser createAuthUser(Long id) {
         return new AuthUser(id, "email", UserRole.USER);

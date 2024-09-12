@@ -1,6 +1,6 @@
 package org.example.expert.domain.manager.service;
 
-import org.example.expert.ManagerServiceObjectFactory;
+import org.example.expert.ServiceTestObjectFactory;
 import org.example.expert.domain.common.dto.AuthUser;
 import org.example.expert.domain.common.exception.InvalidRequestException;
 import org.example.expert.domain.manager.dto.request.ManagerSaveRequest;
@@ -44,10 +44,10 @@ public class SaveManagerServiceTest {
         long managerUserId = 2L;
         long userId = 1L;
 
-        AuthUser authUser = ManagerServiceObjectFactory.createAuthUser(userId);
-        Todo todo = ManagerServiceObjectFactory.createTodo(User.fromAuthUser(authUser));
+        AuthUser authUser = ServiceTestObjectFactory.createAuthUser(userId);
+        Todo todo = ServiceTestObjectFactory.createTodo(User.fromAuthUser(authUser));
         ManagerSaveRequest managerSaveRequest = new ManagerSaveRequest(managerUserId);
-        User managerUser = ManagerServiceObjectFactory.createUser(managerUserId);
+        User managerUser = ServiceTestObjectFactory.createUser(managerUserId);
         Manager manager = new Manager(managerUser, todo);
 
         given(todoRepository.findById(todoId)).willReturn(Optional.of(todo));
@@ -91,10 +91,10 @@ public class SaveManagerServiceTest {
         long managerUserId = 1L;
         long userId = 1L;
 
-        AuthUser authUser = ManagerServiceObjectFactory.createAuthUser(userId);
-        Todo todo = ManagerServiceObjectFactory.createTodo(User.fromAuthUser(authUser));
+        AuthUser authUser = ServiceTestObjectFactory.createAuthUser(userId);
+        Todo todo = ServiceTestObjectFactory.createTodo(User.fromAuthUser(authUser));
         ManagerSaveRequest managerSaveRequest = new ManagerSaveRequest(managerUserId);
-        User managerUser = ManagerServiceObjectFactory.createUser(managerUserId);
+        User managerUser = ServiceTestObjectFactory.createUser(managerUserId);
 
         given(todoRepository.findById(todoId)).willReturn(Optional.of(todo));
         given(userRepository.findById(managerUserId)).willReturn(Optional.of(managerUser));
