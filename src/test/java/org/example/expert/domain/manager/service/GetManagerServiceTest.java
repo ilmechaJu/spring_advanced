@@ -1,7 +1,6 @@
 package org.example.expert.domain.manager.service;
 
-import org.example.expert.ServiceTestObjectFactory;
-import org.example.expert.domain.common.exception.InvalidRequestException;
+import config.ServiceTestObjectFactory;
 import org.example.expert.domain.manager.dto.response.ManagerResponse;
 import org.example.expert.domain.manager.entity.Manager;
 import org.example.expert.domain.manager.repository.ManagerRepository;

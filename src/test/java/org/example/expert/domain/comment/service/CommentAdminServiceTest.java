@@ -1,6 +1,6 @@
 package org.example.expert.domain.comment.service;
 
-import org.example.expert.ServiceTestObjectFactory;
+import config.ServiceTestObjectFactory;
 import org.example.expert.domain.comment.entity.Comment;
 import org.example.expert.domain.comment.repository.CommentRepository;
 import org.junit.jupiter.api.Test;

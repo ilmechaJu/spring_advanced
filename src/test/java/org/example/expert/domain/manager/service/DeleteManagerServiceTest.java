@@ -1,6 +1,6 @@
 package org.example.expert.domain.manager.service;
 
-import org.example.expert.ServiceTestObjectFactory;
+import config.ServiceTestObjectFactory;
 import org.example.expert.domain.common.dto.AuthUser;
 import org.example.expert.domain.common.exception.InvalidRequestException;
 import org.example.expert.domain.manager.dto.request.ManagerSaveRequest;
@@ -25,7 +25,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import java.util.List;
 import java.util.Optional;
 
-import static org.example.expert.ServiceTestObjectFactory.*;
+import static config.ServiceTestObjectFactory.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;

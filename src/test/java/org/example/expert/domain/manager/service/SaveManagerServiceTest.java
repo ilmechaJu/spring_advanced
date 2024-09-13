@@ -1,6 +1,6 @@
 package org.example.expert.domain.manager.service;
 
-import org.example.expert.ServiceTestObjectFactory;
+import config.ServiceTestObjectFactory;
 import org.example.expert.domain.common.dto.AuthUser;
 import org.example.expert.domain.common.exception.InvalidRequestException;
 import org.example.expert.domain.manager.dto.request.ManagerSaveRequest;

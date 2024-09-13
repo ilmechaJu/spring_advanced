@@ -1,6 +1,6 @@
 package org.example.expert.domain.auth.service;
 
-import org.example.expert.ServiceTestObjectFactory;
+import config.ServiceTestObjectFactory;
 import org.example.expert.config.JwtUtil;
 import org.example.expert.config.PasswordEncoder;
 import org.example.expert.domain.auth.dto.request.SignupRequest;

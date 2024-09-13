@@ -31,6 +31,7 @@ public class TodoService {
 
         String weather = weatherClient.getTodayWeather();
 
+
         Todo newTodo = new Todo(
                 todoSaveRequest.getTitle(),
                 todoSaveRequest.getContents(),

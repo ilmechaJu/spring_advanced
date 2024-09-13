@@ -1,6 +1,6 @@
 package org.example.expert.domain.comment.service;
 
-import org.example.expert.ServiceTestObjectFactory;
+import config.ServiceTestObjectFactory;
 import org.example.expert.domain.comment.dto.request.CommentSaveRequest;
 import org.example.expert.domain.comment.dto.response.CommentResponse;
 import org.example.expert.domain.comment.dto.response.CommentSaveResponse;

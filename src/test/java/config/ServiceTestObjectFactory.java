@@ -1,8 +1,9 @@
-package org.example.expert;
+package config;
 
 import org.example.expert.domain.comment.entity.Comment;
 import org.example.expert.domain.common.dto.AuthUser;
 import org.example.expert.domain.manager.entity.Manager;
+import org.example.expert.domain.todo.dto.request.TodoSaveRequest;
 import org.example.expert.domain.todo.entity.Todo;
 import org.example.expert.domain.user.entity.User;
 import org.example.expert.domain.user.enums.UserRole;
@@ -55,5 +56,9 @@ public class ServiceTestObjectFactory {
 
         return comment;
     };
+
+    public static Todo createTodo(TodoSaveRequest todoSaveRequest, User user, long todoId) {
+        return new Todo(todoSaveRequest.getTitle(), todoSaveRequest.getContents(), "Sunny", user);
+    }
 }
 
