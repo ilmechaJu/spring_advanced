@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-class ManagerServiceGetTest {
+class GetManagerServiceTest {
 
     @Mock
     private ManagerRepository managerRepository;
